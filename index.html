@@ -4,18 +4,23 @@
   </head>
   <body>
     <h3>TensorFlow.js</h3>
-    <p id="kk"> kk5 </p>
+<!--     <p id="kk"> kk5 </p>
     <button onclick="test()"> test </button>
-    <button onclick="test2()"> test2 </button>
+    <button onclick="test2()"> test2 </button> -->
+    <p id="status"></p>
+    <!-- <img id="cat" src="perro.jpg" width=224 height=224></img> -->
 
-	<div>
-		<video id="video" autoplay="autoplay"></video>
-	</div>
+    <video autoplay playsinline muted id="webcam" width="224" height="224"></video>
 
+    <div>
+      <button onclick="predict()"> Predict </button> 
+    </div>
 
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.6.1"></script>
-    <script type="text/javascript" src="index.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.9.0"></script>
+    <!-- <script type="text/javascript" src="index.js"></script> -->
     <script type="text/javascript" src="webcam.js"></script>
+    <script type="text/javascript" src="imagenet_classes.js"></script>
+    <script type="text/javascript" src="model.js"></script>
   </body>
 </html>
 
