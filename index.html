@@ -1,22 +1,81 @@
 <html>
-<head>
-  <title> tfjs </title>
-</head>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Transfer Learning with TensorflowJS!</title>
+    <link rel="icon" type="image/png" href="img/favicon.png" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="css/mdb.min.css" rel="stylesheet">
+    <!-- Your custom styles (optional) -->
+    <link href="css/style.css" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  </head>
   <body>
 
-    <p id="status"></p>
-    
-    <video autoplay playsinline muted id="webcam" width="400" height="400"></video>
-    
-    <div>
-      <button id="predictButton"> Start </button> 
+    <!-- Small modal -->
+    <!-- The modal -->
+    <div class="modal fade" id="loadModel_modal" tabindex="-1" role="dialog" aria-labelledby="modalLabelSmall" aria-hidden="true"  data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+            
+                <!--
+                <div class="modal-header">
+                    <h4 class="modal-title" id="modalLabelSmall">Small Shoes</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                -->
+
+                <div class="modal-body" id="modalLoad_body">
+                    <!-- Here we will append text -->
+                </div>
+                
+            </div>
+        </div>
     </div>
-    
+
+    <div class="container-fluid h-100">
+        <div class="row h-100 justify-content-center align-items-center">
+            <div class="col-12">
+                <div class="card">
+                    <div class="color_img_wrapper">
+                        <video autoplay playsinline muted id="webcam" width="400" height="400"></video>
+                    </div>
+
+                    <div class="card-body text-center">
+                        <h4 class="card-title">Transfer Learning Recogniser</h4>
+                        <p class="card-text"><p id="status">Your prediction will appear here!</p></p>
+                        <a href="javascript:void(0)" class="btn btn-primary" id="predictButton">PREDICT</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- SCRIPTS -->
+    <!-- JQuery -->
+    <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="js/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="js/mdb.min.js"></script>
+
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.9.0"></script>
+    <!-- <script type="text/javascript" src="index.js"></script> -->
     <script type="text/javascript" src="js/webcam.js"></script>
     <script type="text/javascript" src="js/imagenet_classes.js"></script>
     <script type="text/javascript" src="js/model.js"></script>
-    <script type="text/javascript" src="js/ui.js"></script>
-
+    <script type="text/javascript" src="js/scripts.js"></script>
   </body>
 </html>
+
+

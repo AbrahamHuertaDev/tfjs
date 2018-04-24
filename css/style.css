@@ -1,0 +1,145 @@
+/* Extra small devices (portrait phones, less than 576px)
+ No media query since this is the default in Bootstrap */
+
+ /* GENERAL STYLES */
+body,html{
+    height:100%;
+}
+
+.card {
+    margin: auto;
+    float: none;
+    width: 18rem;
+    height: 32rem;
+    border-radius: 10px;
+}
+
+.color_img_wrapper {
+    position: relative;
+    overflow: hidden;
+    z-index: 50;
+    border-radius: 10px 10px 0 0;
+}
+
+.card-img-top {
+    width: 100%;
+    min-height: 125%;
+    position: absolute;
+    left: 50%;
+    top: -25%;
+    transform: translateX(-50%);
+}
+
+.color_img_wrapper:after {
+    content: '';
+    display: block;
+    padding-top: 0;
+}
+
+
+.card-body{
+    margin-top: 2rem;
+    padding: 1.5rem;
+}
+
+/* CENTER MODALS */
+.modal {
+    text-align: center;
+    padding: 0!important;
+    font-size: 1.56rem;
+}
+
+.modal:before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    margin-right: -4px; /* Adjusts for spacing */
+}
+
+.modal-dialog {
+    display: inline-block;
+    text-align: left;
+    vertical-align: middle;
+}
+
+#myFileInput{
+    position: absolute;
+    top: -99999999999rem;
+    width: 1px;
+    overflow: hidden;
+}
+
+/* LOADER */
+.loader {
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid #aaa;
+    width: 120px;
+    height: 120px;
+    -webkit-animation: spin 2s linear infinite; /* Safari */
+    animation: spin 2s linear infinite;
+  } 
+  #webcam{
+    width: 100%;
+    height: 100%;
+}
+  /* Safari */
+  @-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+/* MEDIA QUERIES */
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+    .card{
+        width: 24rem;
+        height: 34rem;
+    }
+    
+
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    .card {
+        margin: auto;
+        float: none;
+        width: 30rem;
+        height: 36rem;
+    }
+
+    .card-body{
+        margin-top: 2rem;
+        padding: 3rem;
+    }
+
+    .card-title{
+        margin-top: -2rem;
+    }
+
+    #webcam{
+        min-width: 100%;
+        min-height: 100%;
+        overflow: hidden;
+        background-size: cover;
+        width: auto;
+        height: auto;
+     }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+}
+
