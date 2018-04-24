@@ -13,7 +13,9 @@ function start() {
 	var constraints = {
 	  audio: false,
 	  video: {
-	    facingMode: facingMode
+	    facingMode: facingMode,
+	    height: video.height,
+	    width: video.width
 	  }
 	}
 
@@ -34,7 +36,9 @@ function start() {
 	  constraints = {
 	    audio: false,
 	    video: {
-	      facingMode: facingMode
+	      facingMode: facingMode,
+	      height: video.height,
+	      width: video.width
 	    }
 	  }  
 	  
