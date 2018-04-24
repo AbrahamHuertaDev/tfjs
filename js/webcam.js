@@ -28,6 +28,8 @@ function start() {
 	  } else {
 	    facingMode = "user";
 	  }
+
+	  adjustVideoSize(video.width, video.height);
 	  
 	  constraints = {
 	    audio: false,
