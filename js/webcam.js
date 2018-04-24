@@ -1,11 +1,14 @@
 "use strict";
 
-function start()
-{
+var video = document.getElementById('webcam');
+
+function start() {
 
     navigator.getUserMedia  = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
 
-	var facingMode = "user";
+	var facingMode = "environment";
+
+	adjustVideoSize(video.width, video.height);
 
 	var constraints = {
 	  audio: false,
@@ -14,7 +17,6 @@ function start()
 	  }
 	}
 
-	var video = document.getElementById('webcam');
 
 	navigator.mediaDevices.getUserMedia(constraints).then(function success(stream) {
 		video.srcObject = stream;
@@ -39,6 +41,15 @@ function start()
 	  });
 	});
 
+}
+
+function adjustVideoSize(width, height) {
+    const aspectRatio = width / height;
+    if (width >= height) {
+      video.width = aspectRatio * video.height;
+    } else if (width < height) {
+      video.height = video.width / aspectRatio;
+    }
 }
 
 start();
