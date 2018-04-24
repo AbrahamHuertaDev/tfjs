@@ -8,20 +8,16 @@ function start() {
 
 	var facingMode = "environment";
 
-	adjustVideoSize(video.width, video.height);
-
 	var constraints = {
 	  audio: false,
 	  video: {
-	    facingMode: facingMode,
-	    height: video.height,
-	    width: video.width
+	    facingMode: facingMode
 	  }
 	}
 
-
 	navigator.mediaDevices.getUserMedia(constraints).then(function success(stream) {
 		video.srcObject = stream;
+		adjustVideoSize(video.width, video.height);
 	});
 
 	video.addEventListener('click', function() {
@@ -30,20 +26,17 @@ function start() {
 	  } else {
 	    facingMode = "user";
 	  }
-
-	  adjustVideoSize(video.width, video.height);
 	  
 	  constraints = {
 	    audio: false,
 	    video: {
-	      facingMode: facingMode,
-	      height: video.height,
-	      width: video.width
+	      facingMode: facingMode
 	    }
 	  }  
 	  
 	  navigator.mediaDevices.getUserMedia(constraints).then(function success(stream) {
 		  video.srcObject = stream;	
+		  adjustVideoSize(video.width, video.height);
 	  });
 	});
 
