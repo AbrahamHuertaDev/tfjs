@@ -6,5 +6,6 @@ https://juansensio.github.io/tfjs/
 
 ## Authors
 
-Juan Sensio - juansensio03@gmail.com 
-Mario Parreño Lara - maparla@inf.upv.es
+Juan Sensio - juansensio03@gmail.com - 
+
+Mario Parreño Lara - maparla@inf.upv.es -
