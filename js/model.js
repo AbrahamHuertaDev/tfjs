@@ -33,15 +33,25 @@ function stopPrediction() {
   isPredicting = false;
 }
 
+var time_between_predictions = 2000; //Milisegundos
 async function predict() {
     isPredicting = true;
+    var last_prediction = "";
+    var last_update = 99999999;
     while (isPredicting) {
       tf.tidy(() => {
+        var t0 = performance.now();
         var video = document.getElementById('webcam');
         var preImg = preprocess(video)
         let pred = mobilenet.predict(preImg);
-        let cls = pred.argMax().buffer().values[0];    
-        status(IMAGENET_CLASSES[cls]);
+        let cls = pred.argMax().buffer().values[0];
+        if(last_update>time_between_predictions && last_prediction!=IMAGENET_CLASSES[cls]){
+          status(IMAGENET_CLASSES[cls]);
+          last_update = 0;
+          last_prediction = IMAGENET_CLASSES[cls];
+        }
+        var t1 = performance.now();
+        last_update = last_update + (t1-t0);
       });
       await tf.nextFrame();
     }
