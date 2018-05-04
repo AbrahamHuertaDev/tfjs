@@ -48,10 +48,20 @@
                         <video autoplay playsinline muted id="webcam" width="224" height="224"></video>
                     </div>
 
-                    <div class="card-body text-center">
+                    <div class="card-body text-center predict_card_body">
                         <h4 class="card-title">Image Recognition</h4>
                         <p class="card-text"><p id="status">Your prediction will appear here!</p></p>
                         <a href="javascript:void(0)" class="btn btn-primary" id="predictButton">PREDICT</a>
+                        <a href="javascript:void(0)" class="btn btn-success" id="retrainButton">RETRAIN</a>
+                    </div>
+
+                    <div class="card-body text-center retrain_card_body">
+                        <h4 class="card-title title_transfer">Transfer Learning</h4> 
+                        <p class="waves-effect waves-light add_class_button">Add Class</p>
+                        <p class="waves-effect waves-light retrain_button disabled">Retrain</p>
+                        <div class="new_classes">
+                            
+                        </div>
                     </div>
                 </div>
             </div>
