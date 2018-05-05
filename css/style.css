@@ -9,8 +9,8 @@
 .card {
     margin: auto;
     float: none;
-    width: 448px;
-    height: 39rem;
+    width: 300px;
+    height: 32rem;
     border-radius: 10px;
 }
 
@@ -93,28 +93,22 @@
     padding: 0.65rem 1.55rem 0.65rem 1.55rem;
     background: #FC4A1A;
     color: white;
-}
-
-.take_data_class_btn{
-    width: 38%;
-    padding: 0.4rem 1.25rem 0.4rem 1.25rem;
-    background: #241B3D;
-    color: white;
-    width: 35%
+    font-size: 0.8rem;
 }
 
 .add_class_button{
-    width: 38%;
+    width: 48%;
     float: left;
-    margin-left: 6%;
-    margin-right: 6%;
+    margin-left: 3.5%;
+    margin-right: 3.5%;
     padding: 0.65rem 1.55rem 0.65rem 1.55rem;
     background: #4ABDAC;
     color: white;
+    font-size: 0.8rem;
 }
 
 .new_classes{
-    background: rgba(136, 136, 136, 0.11);
+    background: rgba(136, 136, 136, 0.16);
     padding: 1rem;
     overflow: scroll;
     height: 8.5rem;
@@ -125,12 +119,17 @@
     background: transparent;
     border: 1px solid #999;
     color: #241B3D;
-    padding: 0.35rem;
-    width: 60%;
-    margin-right: 5%;
+    padding: 0.2rem;
+    width: 52.5%;
+    margin-right: 2.5%;
 }
 
-.title_transfer{
+.take_data_class_btn{
+    padding: 0.4rem 1.25rem 0.4rem 1.25rem;
+    background: #241B3D;
+    color: white;
+    width: 45%;
+    font-size: 0.8rem;
 }
 
 #webcam{
@@ -138,8 +137,8 @@
     min-height: 100%;
     overflow: hidden;
     background-size: cover;
-    width: 448px;
-    height: 448px;
+    width: 300px;
+    height: 300px;
     margin-top: -56px;
  }
   /* Safari */
@@ -162,7 +161,62 @@
 
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
+    #webcam{
+        min-width: 100%;
+        min-height: 100%;
+        overflow: hidden;
+        background-size: cover;
+        width: 448px;
+        height: 448px;
+        margin-top: -56px;
+     }
+
+    .card {
+        margin: auto;
+        float: none;
+        width: 448px;
+        height: 39rem;
+        border-radius: 10px;
+    }
+
+    .retrain_button{
+        width: 38%;
+        padding: 0.65rem 1.55rem 0.65rem 1.55rem;
+        background: #FC4A1A;
+        color: white;
+        font-size: 1rem;
+    }
     
+    .add_class_button{
+        width: 38%;
+        float: left;
+        margin-left: 6%;
+        margin-right: 6%;
+        padding: 0.65rem 1.55rem 0.65rem 1.55rem;
+        background: #4ABDAC;
+        color: white;
+        font-size: 1rem;
+    }
+
+    .new_class_input{
+        float: left;
+        background: transparent;
+        border: 1px solid #999;
+        color: #241B3D;
+        padding: 0.35rem;
+        width: 60%;
+        margin-right: 5%;
+    }
+    
+    .take_data_class_btn{
+        width: 38%;
+        padding: 0.4rem 1.25rem 0.4rem 1.25rem;
+        background: #241B3D;
+        color: white;
+        width: 35%;
+        font-size: 1rem;
+    }
+
 }
 
 /* Large devices (desktops, 992px and up) */

@@ -30,7 +30,11 @@ $( document ).ready(function() {
         
         $(".predict_card_body").hide();
         $(".retrain_card_body").show();
-        $(".card").animate({height:'40.5rem'},200);
+        if ($(window).width() >= 768 ){
+            $(".card").animate({height:'40.5rem'},200);
+        }else{
+            $(".card").animate({height:'33.5rem'},200);
+        }
 
     });
 
