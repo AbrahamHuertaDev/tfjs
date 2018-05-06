@@ -17,7 +17,7 @@ function start() {
 
 	navigator.mediaDevices.getUserMedia(constraints).then(function success(stream) {
 		video.srcObject = stream;
-		adjustVideoSize(video.width, video.height);
+		//adjustVideoSize(video.width, video.height);
 	});
 
 	video.addEventListener('click', function() {
