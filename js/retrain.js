@@ -1,67 +1,4 @@
 
-const MOBILENET_MODEL_PATH = 'https://storage.googleapis.com/tfjs-models/tfjs/mobilenet_v1_0.25_224/model.json';
-const IMAGE_SIZE = 224;
-var video = document.getElementById('webcam');
-
-// load the models
-let mobilenet;
-let freezedModel;
-
-async function loadMobilenet() {
-
-  $("#modalLoad_body").html("Loading model...");
-
-  mobilenet = await tf.loadModel(MOBILENET_MODEL_PATH);
-  mobilenet.predict(tf.zeros([1, IMAGE_SIZE, IMAGE_SIZE, 3])).dispose();
-
-  const layer = mobilenet.getLayer('conv_pw_13_relu');
-  freezedModel  = tf.model({inputs: mobilenet.inputs, outputs: layer.output});
-
-  $("#modalLoad_body").html("Done! <i class='fa fa-smile-o' aria-hidden='true'></i>");
-  setTimeout(function() {
-      $('#loadModel_modal').modal('hide');
-  }, 1250);
-
-};
-
-const demoStatusElement = document.getElementById('status');
-const status = msg => demoStatusElement.innerText = msg;
-
-$('#loadModel_modal').modal('show');
-loadMobilenet();
-
-// predict 
-var isPredicting = false;
-function stopPrediction() {
-  isPredicting = false;
-}
-
-var time_between_predictions = 200; //Milisegundos
-async function predict() {
-  isPredicting = true;
-  var last_prediction = "";
-  var last_update = 99999999;
-  while (isPredicting) {
-    tf.tidy(() => {
-      var t0 = performance.now();
-      var preImg = capture(video)
-      let pred = mobilenet.predict(preImg);
-      let cls = pred.argMax().buffer().values[0];
-      if(last_update>time_between_predictions && last_prediction!=IMAGENET_CLASSES[cls]){
-        status(IMAGENET_CLASSES[cls]);
-        last_update = 0;
-        last_prediction = IMAGENET_CLASSES[cls];
-      }
-      var t1 = performance.now();
-      last_update = last_update + (t1-t0);
-    });
-    await tf.nextFrame();
-  }
-}
-
-// new model
-let newModel;
-
 // new labels
 let labels = [];
 let NUM_CLASSES = 0;
@@ -74,7 +11,7 @@ let xs = null;
 let ys = null;
 let y = [];
 
-$("#retrain").click(function(){
+function trainNewModel() {
 
   NUM_CLASSES = labels.length;
 
@@ -133,11 +70,7 @@ $("#retrain").click(function(){
     }
   });
 
-  // volver a modo predictivo con el nuevo modelo
-  $(".retrain_card_body").hide();
-  $(".predict_card_body").show();
-
-});
+}
   
 
 // new predictions
@@ -204,7 +137,7 @@ async function takeData(label) {
     // start taking examples
     tf.tidy(() => {
       var preImg = capture(video);
-      addExample(freezedModel.predict(preImg), labelId);
+      addExample(freezed.predict(preImg), labelId);
     });
     await tf.nextFrame();
   }
@@ -221,6 +154,3 @@ function getIndexOfLabel(label) {
   labels.push(label);
   return labels.length - 1;
 }
-
-
-
