@@ -2,6 +2,7 @@
 
 var video = document.getElementById('webcam');
 
+// initialize video feed
 function start() {
 
     navigator.getUserMedia  = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
@@ -52,3 +53,21 @@ function adjustVideoSize(width, height) {
 }
 
 start();
+
+// take an image from the video feed
+function capture(video) {
+  //tf.tidy(() => {
+    const webcamImage = tf.fromPixels(video);
+    const croppedImage = cropImage(webcamImage);
+    const batchedImage = croppedImage.expandDims(0);
+    return batchedImage.toFloat().div(tf.scalar(127)).sub(tf.scalar(1));
+  //});
+}
+
+function cropImage(img) {
+  const centerHeight = img.shape[0] / 2;
+  const beginHeight = centerHeight - (IMAGE_SIZE / 2);
+  const centerWidth = img.shape[1] / 2;
+  const beginWidth = centerWidth - (IMAGE_SIZE / 2);
+  return img.slice([beginHeight, beginWidth, 0], [IMAGE_SIZE, IMAGE_SIZE, 3]);
+}

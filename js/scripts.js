@@ -1,5 +1,7 @@
 
 predicting = false;
+classes = [];
+
 $( document ).ready(function() {
 
     $("#predictButton").click(function(){
@@ -11,7 +13,8 @@ $( document ).ready(function() {
             stopPrediction();
         }else{
             predicting = true;
-            predict();
+            //predict();
+            predict2();
             $("#predictButton").text("Stop");
             $("#predictButton").removeClass("btn-primary");
             $("#predictButton").addClass("btn-danger");
@@ -19,6 +22,7 @@ $( document ).ready(function() {
     });
 
     $("#retrainButton").click(function(){
+
         // Si esta prediciendo lo paramos
         if(predicting){
             predicting = false;
@@ -40,7 +44,7 @@ $( document ).ready(function() {
 
     $(".add_class_button").click(function(){
         $(".new_classes").append('<div class="new_class_container">\
-                                    <input type="text" class="new_class_input" placeholder="Your class">\
+                                    <input type="text" class="new_class_input" value="No label">\
                                     <p class="waves-effect waves-light take_data_class_btn">Take data</p>\
                                 </div>');
     });
