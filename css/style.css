@@ -6,26 +6,18 @@
     height:100%;
 }
 
-.card {
-    margin: auto;
-    float: none;
-    width: 300px;
-    height: 32rem;
-    border-radius: 10px;
-}
 
 .color_img_wrapper {
     z-index: 50;
     border-radius: 10px 10px 0 0;
+    width: 300px;
+    height: 300px;
+    margin: auto;
 }
 
-.card-img-top {
-    width: 100%;
-    min-height: 125%;
-    position: absolute;
-    left: 50%;
-    top: -25%;
-    transform: translateX(-50%);
+#webcam{
+    width: 300px;
+    height: 300px;
 }
 
 .color_img_wrapper:after {
@@ -34,11 +26,6 @@
     padding-top: 0;
 }
 
-
-.card-body{
-    margin-top: -1.25rem;
-    padding: 1.5rem;
-}
 
 /* CENTER MODALS */
 .modal {
@@ -98,6 +85,7 @@
 
 .retrain_card_body{
     display: none;
+    margin-top: 2rem;
 }
 
 .retrain_button{
@@ -139,10 +127,7 @@
     text-align: center;
 }
 
-#webcam{
-    width: 300px;
-    height: 300px;
-}
+
 #status{
     font-size: 1.52rem;
 }
@@ -187,6 +172,14 @@ option{
 /* Medium devices (tablets, 768px and up) */
 
 @media (min-width: 768px) {
+     .color_img_wrapper {
+        z-index: 50;
+        border-radius: 10px 10px 0 0;
+        width: auto;
+        height: auto;
+        margin: auto;
+    }
+    
     #webcam{
         min-width: 100%;
         min-height: 100%;
@@ -194,54 +187,11 @@ option{
         background-size: cover;
         width: 448px;
         height: 448px;
-     }
-/*
-    .card {
-        margin: auto;
-        float: none;
-        width: 448px;
-        height: 39rem;
-        border-radius: 10px;
     }
 
-    .retrain_button{
-        width: 38%;
-        padding: 0.65rem 1.55rem 0.65rem 1.55rem;
-        background: #FC4A1A;
-        color: white;
-        font-size: 1rem;
+    .retrain_card_body{
+        margin-top: 0rem;
     }
-    
-    .add_class_button{
-        width: 38%;
-        float: left;
-        margin-left: 6%;
-        margin-right: 6%;
-        padding: 0.65rem 1.55rem 0.65rem 1.55rem;
-        background: #4ABDAC;
-        color: white;
-        font-size: 1rem;
-    }
-
-    .new_class_input{
-        float: left;
-        background: transparent;
-        border: 1px solid #999;
-        color: #241B3D;
-        padding: 0.35rem;
-        width: 60%;
-        margin-right: 5%;
-    }
-    
-    .take_data_class_btn{
-        width: 38%;
-        padding: 0.4rem 1.25rem 0.4rem 1.25rem;
-        background: #241B3D;
-        color: white;
-        width: 35%;
-        font-size: 1rem;
-    }
-*/
 }
 
 /* Large devices (desktops, 992px and up) */
