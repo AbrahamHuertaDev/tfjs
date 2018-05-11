@@ -15,18 +15,17 @@ var freezed;
 loadMobilenet();
 
 // train a new model
-
-var models = [mobilenet];
 $("#retrain").click(function(){
 
+    $(".title_mode").text("Training...");
 	var newModel;
 	trainNewModel();
-	models.push(newModel);
-
 
 	// volver a modo predictivo con el nuevo modelo
-	$(".retrain_card_body").hide();
-	$(".predict_card_body").show();
+    $(".retrain_card_body").hide();
+    $(".train_params").hide();
+    $("#status").show();
+    $(".predict_card_body").show();
 
 });
 
@@ -44,7 +43,9 @@ $("#predictButton").click(function(){
         $("#predictButton").addClass("btn-primary");
     }else{
         predicting = true;
-        predict(video);
+        if(parseInt($("#selector_model").val())!=0){
+            predict2(video, models[parseInt($("#selector_model").val())]);
+        }else{predict(video);} 
         $("#predictButton").text("Stop");
         $("#predictButton").removeClass("btn-primary");
         $("#predictButton").addClass("btn-danger");
@@ -52,7 +53,6 @@ $("#predictButton").click(function(){
 });
 
 // retrain mode
-
 $("#retrainButton").click(function(){
 
     // Si esta prediciendo lo paramos
@@ -65,7 +65,12 @@ $("#retrainButton").click(function(){
     }
     
     $(".predict_card_body").hide();
+    $("#status").hide();
+    $(".train_params").show();    
     $(".retrain_card_body").show();
+    var idModel = '' + models.length;
+
+    $("#new_model_name").val("CustomModel"+idModel);
     if ($(window).width() >= 768 ){
         $(".card").animate({height:'40.5rem'},200);
     }else{

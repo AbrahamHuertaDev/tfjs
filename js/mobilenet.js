@@ -1,8 +1,10 @@
+var models = [];
 async function loadMobilenet() {
     mobilenet = await tf.loadModel(MOBILENET_MODEL_PATH);
     mobilenet.predict(tf.zeros([1, IMAGE_SIZE, IMAGE_SIZE, 3])).dispose();
     const layer = mobilenet.getLayer('conv_pw_13_relu');
     freezed = tf.model({inputs: mobilenet.inputs, outputs: layer.output});
+    models.push(mobilenet);
 }
 
 const demoStatusElement = document.getElementById('status');

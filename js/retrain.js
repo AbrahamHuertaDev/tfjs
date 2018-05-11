@@ -13,6 +13,11 @@ let y = [];
 
 function trainNewModel() {
 
+  // Tomar los parametros del usario
+  LEARNING_RATE = parseFloat($("#param_lr").val());
+  BATCH_SIZE = parseFloat($("#param_batch").val());
+  EPOCHS = parseFloat($("#param_epoch").val());
+
   NUM_CLASSES = labels.length;
 
   // one-hot encoding
@@ -64,8 +69,19 @@ function trainNewModel() {
     callbacks: {
       onEpochEnd: async (epoch, logs) => {
         // Log the cost for every batch that is fed.
-        console.log('Epoch: ' + epoch + ' Cost: ' + logs.loss.toFixed(5));
+        //console.log('Epoch: ' + epoch + ' Cost: ' + logs.loss.toFixed(5));
+        $(".title_mode").text('Epoch: ' + epoch + ' Cost: ' + logs.loss.toFixed(5));
         await tf.nextFrame();
+      },
+      onTrainEnd: async(logs) => {
+        models.push(newModel);
+        $('#selector_model').append($('<option>', {
+            value: parseInt(models.length-1),
+            text: $("#new_model_name").val()
+        }));
+
+        $('#selector_model').val(parseInt(models.length-1));
+        $(".title_mode").text("Image Recognition");
       }
     }
   });
@@ -75,18 +91,17 @@ function trainNewModel() {
 
 // new predictions
 
-async function predict2() {
-  isPredicting = true;
+async function predict2(video, model) {
   var last_prediction = "";
   var last_update = 99999999;
-  while (isPredicting) {
+  while (predicting) {
     tf.tidy(() => {
       var t0 = performance.now();
       var preImg = capture(video)
-      var activation = freezedModel.predict(preImg);
-      let pred = newModel.predict(activation);
+      var activation = freezed.predict(preImg);
+      let pred = model.predict(activation);
       let cls = pred.argMax().buffer().values[0];
-      if(last_update>time_between_predictions && last_prediction!=IMAGENET_CLASSES[cls]){
+      if(last_update>time_between_predictions && last_prediction!=labels[cls]){
         status(labels[cls]);
         last_update = 0;
         last_prediction = labels[cls];
@@ -112,7 +127,7 @@ function addExample(example, label) {
     }
 
     y.push(label);
-
+    $(".title_mode").text("Total images: " + ('' + y.length));
 }
 
 var capturing = false;

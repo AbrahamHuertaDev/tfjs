@@ -79,8 +79,21 @@
     animation: spin 2s linear infinite;
 } 
 
-#predictButton, #retrainButton{
-    width: 8.2rem;
+#predictButton, #retrainButton, .add_class_button, .retrain_button{
+    width: 80%;
+    height: 4rem;
+    margin-left: 10%;
+    font-size: 1.52rem;
+}
+
+#new_model_name{
+    width: 80%;
+    margin-left: 10%;
+    text-align: center;
+    margin-bottom: 1.77rem;
+    height: 2.45rem;
+    font-size: 1.52rem;
+    border: dotted;
 }
 
 .retrain_card_body{
@@ -88,29 +101,22 @@
 }
 
 .retrain_button{
-    width: 38%;
-    padding: 0.65rem 1.55rem 0.65rem 1.55rem;
     background: #FC4A1A;
     color: white;
-    font-size: 0.8rem;
 }
 
 .add_class_button{
-    width: 48%;
-    float: left;
-    margin-left: 3.5%;
-    margin-right: 3.5%;
-    padding: 0.65rem 1.55rem 0.65rem 1.55rem;
     background: #4ABDAC;
     color: white;
-    font-size: 0.8rem;
 }
 
 .new_classes{
     background: rgba(136, 136, 136, 0.16);
     padding: 1rem;
     overflow: scroll;
-    height: 8.5rem;
+    height: 13.5rem;
+    width: 80%;
+    margin-left: 10%;
 }
 
 .new_class_input{
@@ -118,38 +124,58 @@
     background: transparent;
     border: 1px solid #999;
     color: #241B3D;
-    padding: 0.2rem;
+    padding: 0.55rem;
     width: 52.5%;
     margin-right: 2.5%;
+    font-size: 1.1rem;
 }
 
 .take_data_class_btn{
-    padding: 0.4rem 1.25rem 0.4rem 1.25rem;
+    padding: 0.5rem 1.25rem 0.5rem 1.25rem;
     background: #241B3D;
     color: white;
     width: 45%;
-    font-size: 0.8rem;
+    font-size: 1.24rem;
+    text-align: center;
 }
 
 #webcam{
-    min-width: 100%;
-    min-height: 100%;
-    overflow: hidden;
-    background-size: cover;
     width: 300px;
     height: 300px;
-    margin-top: -56px;
- }
-  /* Safari */
-  @-webkit-keyframes spin {
-    0% { -webkit-transform: rotate(0deg); }
-    100% { -webkit-transform: rotate(360deg); }
-  }
-  
-  @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-  }
+}
+#status{
+    font-size: 1.52rem;
+}
+
+.train_params{
+    display: none;
+    text-align: center;
+    font-size: 1.15rem;
+}
+
+.param_input{
+    width: 3rem;
+    padding: 0rem 0rem 0rem 0.3rem;
+    font-size: 1.15rem;
+    margin-right: 0.43rem;
+}
+
+.title_mode{
+    font-size: 1.75rem;
+}
+
+/* ESTILOS SELECTOR DE MODELOS */
+#selector_model{
+    width: 80%;
+    margin-left: 10%;
+    font-size: 1.7rem;
+    padding: 1rem;
+}
+
+option{
+    font-size: 1.7rem;
+}
+
 
 /* MEDIA QUERIES */
 
@@ -159,6 +185,7 @@
 }
 
 /* Medium devices (tablets, 768px and up) */
+
 @media (min-width: 768px) {
     #webcam{
         min-width: 100%;
@@ -167,9 +194,8 @@
         background-size: cover;
         width: 448px;
         height: 448px;
-        margin-top: -56px;
      }
-
+/*
     .card {
         margin: auto;
         float: none;
@@ -215,7 +241,7 @@
         width: 35%;
         font-size: 1rem;
     }
-
+*/
 }
 
 /* Large devices (desktops, 992px and up) */

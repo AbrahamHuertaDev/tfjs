@@ -40,7 +40,7 @@
         </div>
     </div>
 
-    <div class="container-fluid h-100">
+    <!--<div class="container-fluid h-100">
         <div class="row h-100 justify-content-center align-items-center">
             <div class="col-12">
                 <div class="card">
@@ -66,6 +66,37 @@
                 </div>
             </div>
         </div>
+    </div>-->
+
+    <div class="container h-100">
+        <div class="row h-100 justify-content-center align-items-center">
+            <div class="col-sm-6">
+                <h4 class="text-center title_mode">Image Recognition</h4>
+                <div class="color_img_wrapper">
+                    <video autoplay playsinline muted id="webcam" width="224" height="224"></video>
+                </div>
+                <p id="status" class="text-center">Your prediction will appear here!</p>
+                <div class="train_params">
+                    Epochs <input type="text" value="1" class="param_input" id="param_epoch">
+                    Batch Size <input type="text" value="10" class="param_input" id="param_batch">
+                    Learning Rate <input type="text" value="0.01" class="param_input" style="width: 3.35rem;" id="param_lr">
+                </div>
+            </div>
+            <div class="col-sm-6 predict_card_body">
+                <select id="selector_model">
+                    <option value="0">Mobilenet</option>
+                </select> 
+                <a href="javascript:void(0)" class="btn btn-primary" id="predictButton" style="margin-top: 1.84rem;">PREDICT</a>
+                <a href="javascript:void(0)" class="btn btn-success" id="retrainButton" style="margin-top: 0.6rem;">RETRAIN</a>
+            </div>
+            <div class="col-sm-6 retrain_card_body">
+                <input type="text" id="new_model_name">
+                <a class="add_class_button btn">Add Class</a>
+                <div class="new_classes"  style="margin-top: 1.4rem;"></div>
+
+                <a class="btn retrain_button" id="retrain"  style="margin-top: 1.4rem;">Train</a>
+            </div>
+        </div>
     </div>
 
 
@@ -88,5 +119,3 @@
     <script type="text/javascript" src="js/index.js"></script>
   </body>
 </html>
-
-
