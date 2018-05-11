@@ -112,18 +112,18 @@
     background: transparent;
     border: 1px solid #999;
     color: #241B3D;
-    padding: 0.55rem;
-    width: 52.5%;
+    padding: 0.35rem;
+    width: 42.5%;
     margin-right: 2.5%;
-    font-size: 1.1rem;
+    font-size: 1rem;
 }
 
 .take_data_class_btn{
-    padding: 0.5rem 1.25rem 0.5rem 1.25rem;
+    padding: 0.4rem 1.25rem 0.4rem 1.25rem;
     background: #241B3D;
     color: white;
-    width: 45%;
-    font-size: 1.24rem;
+    width: 55%;
+    font-size: 1rem;
     text-align: center;
 }
 
@@ -192,6 +192,27 @@ option{
     .retrain_card_body{
         margin-top: 0rem;
     }
+
+    .new_class_input{
+        float: left;
+        background: transparent;
+        border: 1px solid #999;
+        color: #241B3D;
+        padding: 0.55rem;
+        width: 52.5%;
+        margin-right: 2.5%;
+        font-size: 1.1rem;
+    }
+    
+    .take_data_class_btn{
+        padding: 0.5rem 1.25rem 0.5rem 1.25rem;
+        background: #241B3D;
+        color: white;
+        width: 45%;
+        font-size: 1.24rem;
+        text-align: center;
+    }
+
 }
 
 /* Large devices (desktops, 992px and up) */
