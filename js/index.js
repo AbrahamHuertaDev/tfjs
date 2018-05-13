@@ -1,6 +1,12 @@
 const MOBILENET_MODEL_PATH = 'https://storage.googleapis.com/tfjs-models/tfjs/mobilenet_v1_0.25_224/model.json';
 const IMAGE_SIZE = 224;
 
+// Info modal show
+// retrain mode
+$("#let_info").click(function(){
+    $("#myModalHelp").modal("show");
+});
+
 // start the webcam
 
 var video = startWebcam(document.getElementById('webcam'));

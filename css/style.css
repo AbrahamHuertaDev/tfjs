@@ -15,13 +15,26 @@
     margin: auto;
 }
 
+.info_dialog{
+    width: 70%;
+}
+.info_title{
+    font-size: 2rem;
+}
+
 #let_info{
     position: absolute;
     right: 1rem;
     top: 1rem;
-    font-size: 2rem;
+    font-size: 2.5rem;
     color: #aaa;
     cursor: pointer;
+    z-index: 99;
+    transition: all 0.5s;
+}
+
+#let_info:hover{
+    color: #666;
 }
 
 #webcam{
