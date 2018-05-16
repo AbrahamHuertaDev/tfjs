@@ -83,6 +83,11 @@ $("#retrainButton").click(function(){
         $(".card").animate({height:'33.5rem'},200);
     }
 
+    $(".title_mode").text("Retrain");
+
+    $(".add_class_button").click();
+    $(".add_class_button").click();
+
 });
 
 $(".add_class_button").click(function(){
