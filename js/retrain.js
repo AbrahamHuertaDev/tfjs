@@ -69,8 +69,8 @@ function trainNewModel() {
     callbacks: {
       onEpochEnd: async (epoch, logs) => {
         // Log the cost for every batch that is fed.
-        //console.log('Epoch: ' + epoch + ' Cost: ' + logs.loss.toFixed(5));
-        $(".title_mode").text('Epoch: ' + epoch + ' Cost: ' + logs.loss.toFixed(5));
+        console.log('Epoch: ' + String(epoch+1) + ' Cost: ' + logs.loss.toFixed(5));
+        title = 'Epoch: ' + String(epoch+1) + ' Loss: ' + logs.loss.toFixed(5);
         await tf.nextFrame();
       },
       onTrainEnd: async(logs) => {
@@ -81,7 +81,13 @@ function trainNewModel() {
         }));
 
         $('#selector_model').val(parseInt(models.length-1));
-        $(".title_mode").text("Image Recognition");
+        $(".title_mode").text(title);
+
+        xs = null;
+        ys = null;
+        y = [];
+
+        $(".new_class_container").remove();
       }
     }
   });

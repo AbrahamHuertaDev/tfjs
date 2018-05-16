@@ -13,8 +13,8 @@ var video = startWebcam(document.getElementById('webcam'));
 
 // load mobilenet
 
-$('#loadModel_modal').modal('show');
-$("#modalLoad_body").html("Loading model...");
+// $('#loadModel_modal').modal('show');
+// $("#modalLoad_body").html("Loading model...");
 
 var mobilenet;
 var freezed;
