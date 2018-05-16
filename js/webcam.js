@@ -22,7 +22,7 @@ function startWebcam(video) {
 		constraints = {
 			audio: false,
 			video: {
-		  	facingMode: this.facingMode
+		  	facingMode: facingMode
 			}
 		}  
 
